@@ -1,17 +1,17 @@
 ;
-; Config file for HPC laser LS-3020
+; Config file for LHS Laser
 ; 
-; for the version with flatcable and 26x32 honeycomb
-; as distributed in may 2012
+; for the version with DRV2850 and 60x40 honeycomb
+; as loaded to MBED 25/03/2016
 ;
-; configuration made by Jaap Vermaas <jaap@tuxic.nl>
+; configuration made by Swwils & Joran
 ;
 ; Save on MBED in the root, as "config.txt"
 ;
 ;net.ip 192.168.178.111		; IP address [xxx.xxx.xxx.xxx] 
 ;net.netmask 255.255.255.0	; netmask [xxx.xxx.xxx.xxx] 
 ;net.gateway 192.168.123.254	; gateway
-;net.dns 192.168.123.194		; DNS server
+;net.dns 192.168.123.194	; DNS server
 net.dhcp 1			; Enable DHCP for IP address [0/1]
 net.port 69			; Communication socket port number []
 
@@ -48,8 +48,9 @@ x.home 0			; home positions [um]
 x.min 0				; minimal position [um]
 x.max 600000			; maximum position [um]
 x.rest 100			; rest position [um]
-x.speed 500			; maximum speed [mm/sec]
+x.speed 500			; maximum speed [mm/sec] used for etch and limit
 x.invert 0			; Invert signal polarity for step signal [1/0]
+x.accel 1000			; Used for etch
 
 ; Now for the Y-axis:
 y.pol 1				; home/limit sensor polarity [1/0]
@@ -61,11 +62,9 @@ y.home 400000			; home positions [um]
 y.min 0				; minimal position [um]
 y.max 400000			; maximum position [um]
 y.rest 399900			; rest position [um] 
-y.speed 500			; maximum speed [mm/sec]
+y.speed 500			; maximum speed [mm/sec] used for limit
 y.invert 1			; Invert signal polarity for step signal [1/0]
-
-x.accel 1000
-y.accel 1000
+y.accel 1000			; Not currently used
 
 ; Z-axis not in use for HPC
 ; z.min 0
